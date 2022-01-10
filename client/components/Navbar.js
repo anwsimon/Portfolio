@@ -12,8 +12,8 @@ class Navbar extends React.Component {
       <Link to="/projects">
         Projects
       </Link>
-      <Link to="/blog">
-        Blog
+      <Link to="/personal">
+        Personal
       </Link>
 
     </div>

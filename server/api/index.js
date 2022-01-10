@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
 router.use('/projects', require('./projects'))
-// router.use('/personal', require('./personal'))
+router.use('/personal', require('./personal'))
 
 // error handling
 router.use((req, res, next) => {
