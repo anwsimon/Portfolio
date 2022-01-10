@@ -2,19 +2,10 @@ const router = require('express').Router()
 
 router.get('/', (req, res, next) => {
  res.send('hello!')
- console.log('we are here!')
 })
 
-// router.post('/', (req, res, next) => {
-
-// })
-
-// router.put('/:projectId', (req, res, next) => {
-
-// })
-
-// router.delete('/:projectId', (req, res, next) => {
-
-// })
+router.get('/:projectName', (req, res, next) => {
+  res.send('hello this is a project page!')
+ })
 
 module.exports = router
