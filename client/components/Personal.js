@@ -4,7 +4,8 @@ class Personal extends React.Component {
   render(){
     return (
       <div>
-        this is personal home
+        Find me on github :)
+        <img src="https://ghchart.rshah.org/anwsimon" alt="Anna's Github chart" />
       </div>
     )
   }
