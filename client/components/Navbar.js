@@ -8,7 +8,7 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 const pages = ['Home', 'Projects', 'Personal'];
 
 const ResponsiveAppBar = () => {
@@ -75,10 +75,9 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-
-                <Link key = {page} to = {`/${page}`}>
+                <NavLink key ={page} to={`/${page}`}>
                   <Typography textAlign="center">{page}</Typography>
-                </Link>
+                </NavLink>
               ))}
             </Menu>
           </Box>
@@ -92,13 +91,9 @@ const ResponsiveAppBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
+              <NavLink key ={page} to={`/${page}`}>
+              <Typography textAlign="center">{page}</Typography>
+            </NavLink>
             ))}
           </Box>
         </Toolbar>
