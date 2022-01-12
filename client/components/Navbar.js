@@ -8,8 +8,41 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+
+
 const pages = ['Home', 'Projects', 'Personal'];
+
+const useStyles = makeStyles((theme) => ({
+  navlinks: {
+    marginLeft: theme.spacing(10),
+    display: "flex",
+    fontSize:"100px"
+  },
+  menu: {
+    backgroundColor: "pink",
+  },
+  link: {
+    textDecoration: "none",
+    color: "white",
+    fontSize: "100px",
+    marginLeft: theme.spacing(10),
+    "&:hover": {
+      color: "green",
+      borderBottom: "1px solid white",
+    },
+  },
+  menuLink: {
+    textDecoration: "none",
+    color: "green",
+    fontSize: "50px",
+    "&:hover": {
+      color: "pink",
+      borderBottom: "1px solid white",
+    },
+  },
+}));
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -22,30 +55,25 @@ const ResponsiveAppBar = () => {
     setAnchorElNav(null);
   };
 
-  const handleNavToPage = (page) => {
-    console.log(page)
-    if (page === 'Home'){
-      <Link to = "/"/>
-    } else {
-      <Link to ={`/${page}`}/>
-    }
-
-  }
+  const classes = useStyles()
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+
+    <AppBar position="static" >
+      <Container maxWidth="xl" className={classes.menu}>
+        <Toolbar disableGutters >
           <Typography
-            variant="h6"
+            variant="h3"
             noWrap
             component="div"
+            className={classes.navlinks}
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
             Anna Simon
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          {/* condensed view */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: "white" }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -75,14 +103,19 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <NavLink key ={page} to={`/${page}`}>
-                  <Typography textAlign="center">{page}</Typography>
+                <NavLink key ={page} to={`/${page}`} className={classes.menuLink}>
+                  <Typography
+                  textAlign="center"
+
+                  variant="h5">{page}
+                  </Typography>
                 </NavLink>
               ))}
             </Menu>
           </Box>
+          {/* wider view */}
           <Typography
-            variant="h6"
+            variant="h3"
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
@@ -90,8 +123,9 @@ const ResponsiveAppBar = () => {
             Anna Simon
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
             {pages.map((page) => (
-              <NavLink key ={page} to={`/${page}`}>
+              <NavLink key ={page} to={`/${page}`} className={classes.link}>
               <Typography textAlign="center">{page}</Typography>
             </NavLink>
             ))}
