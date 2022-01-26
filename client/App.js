@@ -1,18 +1,22 @@
 import React from "react";
 import AppRoutes from "./store/routes";
-import ResponsiveAppBar from "./components/Navbar";
-import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
-import { createTheme } from '@mui/material';
+import '../dist/output.css';
 
-const theme = createTheme();
 
 const App = () => {
   return (
     <div>
-       <ThemeProvider theme={theme}>
-        <ResponsiveAppBar />
+        <nav className="flex sm:justify-center space-x-4">
+      {[
+        ['Home', '/dashboard'],
+        ['Team', '/team'],
+        ['Projects', '/projects'],
+        ['Reports', '/reports'],
+      ].map(([title, url]) => (
+        <a href={url} className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">{title}</a>
+      ))}
+    </nav>
         <AppRoutes />
-      </ThemeProvider>
     </div>
   )
 }
