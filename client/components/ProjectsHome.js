@@ -48,16 +48,16 @@ export default ProjectsHome
 
 function Item(props) {
     return (
-        <div className="mt-6 p-4 bg-white px-6">
+        <div className="font-serif mt-6 p-4 bg-white px-6">
             <div className="divide-y divide-dashed divide-black">
             <div className="md:grid grid-cols-2 gap-6">
                 <div>
                 <img className="md:h-full object-cover" src={props.item.image} alt="" />
                 </div>
                 <div>
-                <h1 className="my-6 text-2xl font-bold text-gray-700">{props.item.name}</h1>
-                <h2 className="text-lg rounded-full bg-gray-800 text-white">{props.item.title}</h2>
-                <span className="text-lg"></span>
+                <h1 class="font-serif">{props.item.name}</h1>
+                <h2 className="font-sans">{props.item.title}</h2>
+                <span className="font-sans"></span>
                 <p className="mt-6 text-lg text-gray-700">{props.item.description} </p>
                 <p className="mt-6 text-lg text-gray-700">{props.item.stack} </p>
                 </div>
