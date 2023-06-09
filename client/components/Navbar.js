@@ -7,7 +7,7 @@ const pages = [
 
 const Navbar = () => {
   return (
-    <div className="flex  ">
+    <div className="flex items-center">
       <img src="smiley.png" className="object-cover w-20 h-20"></img>
 
       <nav className="flex sm:justify-center space-x-4 p-4">
